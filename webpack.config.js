@@ -1,39 +1,65 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FileManagerPlugin = require("filemanager-webpack-plugin");
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   devServer: {
     historyApiFallback: true,
     static: {
-      directory: path.resolve(__dirname, './dist')
+      directory: path.resolve(__dirname, "./dist"),
     },
     open: true,
     compress: true,
     hot: true,
-    port: 8080
+    port: 8080,
   },
-  entry: path.join(__dirname, 'src', 'index.ts'),
+  entry: path.join(__dirname, "src", "scripts", "index.ts"),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    clean: true
+    path: path.join(__dirname, "dist"),
+    filename: "index.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'webpack Boilerplate',
-      template: path.resolve(__dirname, './src/index.html'),
-      filename: 'index.html'
+      template: path.join(__dirname, "src", "index.html"),
+      filename: "index.html",
     }),
-    new CleanWebpackPlugin()
+    new FileManagerPlugin({
+      events: {
+        onStart: {
+          delete: ["dist"],
+        },
+        onEnd: {
+          copy: [
+            {
+              source: path.join("public", "assets"),
+              destination: path.join("dist", "public/assets"),
+            }
+          ],
+        },
+      },
+    }),
+    new CleanWebpackPlugin(),
   ],
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"],
+  },
   module: {
     rules: [
       {
         test: /\.(sass|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|webp|avif|ico)$/i,
+        type: "asset/resource",
       }
     ]
   }
-}
+};
