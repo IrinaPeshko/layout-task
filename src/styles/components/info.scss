@@ -1,0 +1,33 @@
+.info {
+  padding: 66px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  background-color: #f4f4f4;
+  margin: 38px auto 67px;
+}
+
+.info__header {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  margin: 18px auto 10px;
+}
+
+.info__icon {
+  width: 70px;
+}
+
+.info__paragraph {
+  width: 100%;
+  margin: auto;
+  line-height: 20px;
+  font-family: var(--font-family-roboto);
+  text-align: center;
+}
+
+.info__details {
+  text-align: center;
+}
