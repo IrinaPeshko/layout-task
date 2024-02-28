@@ -1,11 +1,18 @@
-:root {
-    /* Colors */
-    --color-dark: #262626;
-    --color-grey: #444444;
-    --color-blue: #0568C3;
-    --color-white: #FFFFFF;
-  
-    /* Fonts */
-    --font-family-prompt: 'Prompt', sans-serif;
-    --font-family-roboto: 'Roboto', sans-serif;
+* {
+    font-size: var(--font-family-prompt);
+}
+
+.container {
+    width: 90%;
+    margin: 11px auto;
+}
+
+.header {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 37.5px;
+    text-align: center;
+    letter-spacing: 1.7px;
+    margin: 30px auto;
+    color: var(--color-grey);
 }

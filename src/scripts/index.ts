@@ -1,6 +1,9 @@
-  import '../styles/style.scss';
-  import { Slider } from './components/slider';
+import "../styles/style.scss";
+import "../styles/variables.scss";
+import "../styles/normalize.scss";
 
-  document.addEventListener('DOMContentLoaded', () => {
-    new Slider('slider');
-  });
+import { SwiperSlider } from "./components/slider";
+
+document.addEventListener("DOMContentLoaded", () => {
+  new SwiperSlider(".swiper");
+});
