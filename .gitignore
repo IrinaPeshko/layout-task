@@ -50,5 +50,3 @@ logs/
 .pnpm-debug.log
 
 yarn.lock
-
-/public/
