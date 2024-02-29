@@ -78,17 +78,12 @@
   transform: translateY(90%);
   color: var(--color-blue);
   transition: color 0.3s ease;
-  @media (min-width: 768px) {
-    color: #dddddd;
-    &:hover {
-      color: var(--color-blue);
-    }
-  }
-  @media (min-width: 1024px) {
+  @media only screen and (min-width: 1024px) {
     top: 50%;
     color: #dddddd;
     &:hover {
       color: var(--color-blue);
+      cursor: pointer;
     }
   }
 }

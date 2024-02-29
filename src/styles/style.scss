@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   font-weight: 500;
   font-size: 25px;
@@ -39,4 +43,5 @@
   color: var(--color-blue);
   text-decoration: none;
   padding: 0 25px;
+  display: block;
 }

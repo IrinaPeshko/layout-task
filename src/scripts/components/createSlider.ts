@@ -4,6 +4,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Objects, objects } from "./objectsContent";
 
 export const createSwiperSlider = (selector: string) => {
   const element = document.querySelector(selector);
@@ -12,7 +13,10 @@ export const createSwiperSlider = (selector: string) => {
     throw new Error(`Container element with selector '${selector}' not found`);
   }
 
-  new Swiper(selector, {
+  const swiperWrapper = element.querySelector(".swiper-wrapper") as HTMLElement;
+  swiperWrapper.innerHTML = createSlidesHTML(objects);
+
+  new Swiper(element, {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 30,
@@ -41,4 +45,20 @@ export const createSwiperSlider = (selector: string) => {
       },
     },
   });
+};
+
+const createSlidesHTML = (slides: Objects[]): string => {
+  return slides
+    .map(
+      (slide) => `
+    <div class="swiper-slide slide">
+      <img class="slide__image" src="${slide.imagePath}" alt="${slide.alt}" />
+      <div class="slide__description description">
+        <p class="slide__paragraph">${slide.description}</p>
+        <a href="#" class="slide__details details">Подробнее ></a>
+      </div>
+    </div>
+  `
+    )
+    .join("");
 };
