@@ -17,3 +17,7 @@
 1. Склонируйте репозиторий на ваш локальный компьютер.
 2. В корневой директории проекта выполните команду `npm install` для установки зависимостей.
 3. Запустите проект, используя команду `npm run start`.
+
+## Макет Fifma:
+
+https://www.figma.com/file/PhNM21YvfWMcY2LU3VZL2l/Blocks-1?type=design&node-id=1-690&mode=design&t=QVpEPL1WkDwB52CS-0
